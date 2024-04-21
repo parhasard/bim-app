@@ -1,0 +1,24 @@
+{
+  "name": "bim-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bim-fragment": "^1.3.1",
+    "openbim-components": "^1.3.1",
+    "powerbi-client": "^2.23.1",
+    "three": "^0.152.2",
+    "vue": "^3.3.11",
+    "web-ifc": "^0.0.46"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.8"
+  }
+}
