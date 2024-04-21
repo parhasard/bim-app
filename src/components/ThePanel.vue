@@ -1,17 +1,50 @@
 <template>
     <transition name="slide-fade">
-        <div v-show="isOpen" class="panel">
-            <!-- Panel content goes here -->
+        <div ref="powerbiContainer" v-show="isOpen" class="panel">
+            <iframe width="800" height="600" :src="reportUrl" frameborder="0" allowFullScreen="true"></iframe>
         </div>
     </transition>
 </template>
 
 <script setup>
 import { defineProps } from 'vue'
+import { onMounted, ref } from 'vue';
+import * as powerbi from 'powerbi-client';
 
 const props = defineProps({
-    isOpen: Boolean
+    isOpen: Boolean,
+    accessToken: String,
+    embedUrl: String,
+    reportId: String
 })
+const reportUrl = ref('https://app.powerbi.com/reportEmbed?reportId=_ngcontent-ng-c755602976...&autoAuth=true&ctid=...');
+
+
+
+const powerbiContainer = ref(null);
+
+// onMounted(() => {
+//     const embedConfiguration = {
+//         type: 'report',
+//         tokenType: powerbi.models.TokenType.Embed,
+//         accessToken: props.accessToken,
+//         embedUrl: props.embedUrl,
+//         id: props.reportId,
+//         permissions: powerbi.models.Permissions.All,
+//         settings: {
+//             filterPaneEnabled: true,
+//             navContentPaneEnabled: true
+//         }
+//     };
+
+//     const powerbiService = new powerbi.service.Service(
+//         powerbi.factories.hpmFactory,
+//         powerbi.factories.wpmpFactory,
+//         powerbi.factories.routerFactory
+//     );
+
+//     powerbiService.embed(powerbiContainer.value, embedConfiguration);
+// });
 </script>
 
 <style scoped>
